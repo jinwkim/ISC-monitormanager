@@ -44,7 +44,8 @@ i.e. set ^lasttimestamp = "08/01/2020 00:00:00"
 <Implementation><![CDATA[
 	
 	// Set location of messages.log and open it
-	set tLogFile = ##class(%File).%New("C:\InterSystems\IRISHealth\mgr\messages.log")
+#;	set tLogFile = ##class(%File).%New("C:\InterSystems\IRISHealth\mgr\messages.log")
+	set tLogFile = ##class(%File).%New($system.Util.ManagerDirectory()_"messages.log")
 	// do tLogFile.Close()
 	set tSC = tLogFile.Open("RH",5)
 	
